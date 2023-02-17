@@ -71,4 +71,8 @@ font:
 live_config_reload: true
 dynamic_padding: true
 shell:
-   program: fish
+   {{ if eq .chezmoi.os "darwin" }}
+   program: /usr/local/bin/fish
+   {{ else }}
+   program: /usr/bin/fish
+   {{ end }}
