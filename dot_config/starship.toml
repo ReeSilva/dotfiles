@@ -54,6 +54,9 @@ min_time = 1
 
 ## SECOND LINE/ROW: Prompt
 # Somethere at the beginning
+[container]
+disabled = true
+
 [battery]
 charging_symbol = ""
 disabled = true
