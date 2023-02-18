@@ -1,4 +1,4 @@
-functions/
+functions/**
 conf.d/*.fish
 completions/**
 
