@@ -1,5 +1,9 @@
 {{ if eq .chezmoi.os "linux" -}}
+  {{ if not $codespaces -}}
   source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.fish
+  {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
+  {{ if not $codespaces -}}
   source /usr/local/opt/asdf/libexec/asdf.fish
+  {{ end -}}
 {{ end -}}

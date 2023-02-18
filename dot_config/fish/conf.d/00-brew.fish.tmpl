@@ -1,5 +1,9 @@
 {{ if eq .chezmoi.os "linux" -}}
+  {{ if not $codespaces -}}
   eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
+  {{ if not $codespaces -}}
   eval (/usr/local/bin/brew shellenv)
+  {{ end -}}
 {{ end -}}
