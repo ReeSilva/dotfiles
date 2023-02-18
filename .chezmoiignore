@@ -1,11 +1,9 @@
 {{ if ne .chezmoi.os "linux" -}}
-.config/hypr
-.config/hypr/**
+.config/hypr/
 .config/sway/
 .config/waybar/
 {{ else if ne .chezmoi.os "darwin" -}}
-iterm2/
-skhd/
-yabai/
+.config/iterm2/
+.config/skhd/
+.config/yabai/
 {{ end -}}
-.gitconfig

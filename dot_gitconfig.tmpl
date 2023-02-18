@@ -1,11 +1,7 @@
 [user]
-	email = renato.silva@quandoo.com
+	email = {{ .email | quote }}
 	name = Renato Biancalana da Silva
-        {{- if eq .chezmoi.hostname "QL02010" }}
-	signingkey = 3F478438C0036174
-        {{- else }}
-        signingkey = 8043074595E0601E
-        {{- end }}
+        signingkey = {{ .signingkey | quote }}
 [commit]
 	gpgsign = true
 [gpg]
