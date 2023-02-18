@@ -1,5 +1,5 @@
-if [ 'Linux' = $UNAME ]
+{{ if eq .chezmoi.os "linux" -}}
   source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.fish
-else if [ 'Darwin' = $UNAME ]
+{{ else if eq .chezmoi.os "darwin" -}}
   source /usr/local/opt/asdf/libexec/asdf.fish
-end
+{{ end -}}

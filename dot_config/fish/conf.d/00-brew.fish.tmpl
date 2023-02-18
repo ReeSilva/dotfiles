@@ -1,7 +1,5 @@
-set -xg UNAME (uname)
-
-if [ $UNAME = 'Linux' ]
+{{ if eq .chezmoi.os "linux" -}}
   eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-else if [ $UNAME = 'Darwin' ]
+{{ else if eq .chezmoi.os "darwin" -}}
   eval (/usr/local/bin/brew shellenv)
-end
+{{ end -}}
