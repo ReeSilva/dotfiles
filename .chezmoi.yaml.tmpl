@@ -1,6 +1,16 @@
-{{ $email := promptString "email" -}}
-{{ $signingkey := promptString "signingkey" -}}
+{{- $codespaces := env "CODESPACES" | not | not -}}
 
 data:
-  email: {{ $email | quote }}
-  signingkey: {{ $signingkey | quote }}
+  codespaces: {{ $codespaces }}
+  {{- if $codespaces }}
+  {{- if .chezmoi.hostname "QL02010" }}
+  email: renato.silva@quandoo.com
+  signingkey: 3F478438C0036174
+  {{- else }}
+  email: reesilva@pm.me
+  signingkey: 8043074595E0601E
+  {{- end }}
+  {{- else }}
+  email: {{ promptString "email" | quote }}
+  signingkey: {{ promptString "signingkey" | quote }}
+  {{- end }}
