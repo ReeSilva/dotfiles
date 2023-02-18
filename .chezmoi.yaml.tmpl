@@ -1,9 +1,11 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 data:
+  name: Renato Biancalana da Silva
   codespaces: {{ $codespaces }}
   {{- if $codespaces }}
-  {{- if .chezmoi.hostname "QL02010" }}
+  {{- if eq .chezmoi.hostname "QL02010" }}
   email: renato.silva@quandoo.com
   signingkey: 3F478438C0036174
   {{- else }}
