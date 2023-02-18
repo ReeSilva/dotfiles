@@ -1,0 +1,6 @@
+functions/
+conf.d/*.fish
+completions/**
+
+!conf.d/00-brew.fish
+!conf.d/01-asdf.fish
