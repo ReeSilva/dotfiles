@@ -1,0 +1,30 @@
+[user]
+	email = renato.silva@quandoo.com
+	name = Renato Biancalana da Silva
+        {{- if eq .chezmoi.hostname "QL02010" }}
+	signingkey = 3F478438C0036174
+        {{- else }}
+        signingkey = 8043074595E0601E
+        {{- end }}
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[core]
+        {{- if eq .chezmoi.hostname "QL02010" }}
+	excludesFile = /Users/renatosilva/.gitignore
+        {{- else }}
+        excludesFile = /home/reesilva/.gitignore
+        {{- end }}
+[credential]
+	helper = store
+[merge]
+	tool = nvimdiff
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
