@@ -54,8 +54,12 @@ min_time = 1
 
 ## SECOND LINE/ROW: Prompt
 # Somethere at the beginning
+{{- if eq .chezmoi.os "linux" }}
+{{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [container]
 disabled = true
+{{- end }}
+{{- end }}
 
 [battery]
 charging_symbol = ""
