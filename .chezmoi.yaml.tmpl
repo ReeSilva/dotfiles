@@ -1,6 +1,21 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
 sourceDir: {{ .chezmoi.sourceDir | quote }}
 
+diff:
+  command: nvim
+  args:
+    - -d
+    - "{{ "{{ .Destination }}" }}"
+    - "{{ "{{ .Target }}" }}"
+
+merge:
+  command: nvim
+  args:
+    - -d
+    - "{{ "{{ .Source }}" }}"
+    - "{{ "{{ .Destination }}" }}"
+    - "{{ "{{ .Target }}" }}"
+
 data:
   name: Renato Biancalana da Silva
   codespaces: {{ $codespaces }}

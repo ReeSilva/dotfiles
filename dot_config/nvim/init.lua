@@ -13,7 +13,6 @@ require('lualine').setup({
   }
 })
 require('nvim-tree').setup({
-  open_on_setup = true,
   open_on_tab = true,
   sync_root_with_cwd = true,
   view = {
