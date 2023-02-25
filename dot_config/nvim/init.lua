@@ -26,7 +26,6 @@ vim.cmd([[ colorscheme nord ]])
 vim.api.nvim_set_var("neovide_remember_window_size", true)
 
 -- Set Options --
--- vim.opt.guifont = { "SpaceMono Nerd Font", ":h14" }
 vim.opt.guifont = { "FantasqueSansMono Nerd Font", ":h16" }
 vim.g.neovide_transparency = 0.85
 vim.o.hidden = true
@@ -36,6 +35,8 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 2
 vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Mappings --
 vim.keymap.set('n', '<Leader>gg', ':LazyGit<CR>')
