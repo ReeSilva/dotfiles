@@ -13,6 +13,7 @@ yabai -m signal --add event=display_changed action="yabai -m window --focus \$(y
 
 ########## Rules ##########
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Podman Desktop$" manage=off
 
 ########## global settings ##########
 echo "loading settings..."
