@@ -77,7 +77,7 @@
     "refreshFrequency": 20000,
     "networkDevice": "en0",
     "hideWifiIfDisabled": true,
-    "toggleWifiOnClick": false
+    "toggleWifiOnClick": true
   },
   "vpnWidgetOptions": {
     "refreshFrequency": 8000,
