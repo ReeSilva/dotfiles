@@ -56,7 +56,7 @@
     "spotifyWidget": false,
     "cryptoWidget": false,
     "stockWidget": false,
-    "musicWidget": true,
+    "musicWidget": false,
     "mpdWidget": false,
     "dndWidget": false,
     "browserTrackWidget": true
