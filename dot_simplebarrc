@@ -8,7 +8,7 @@
     "inlineSpacesOptions": false,
     "disableNotifications": false,
     "compactMode": false,
-    "widgetMaxWidth": "160px",
+    "widgetMaxWidth": "80px",
     "spacesBackgroundColorAsForeground": false,
     "widgetsBackgroundColorAsForeground": false,
     "font": "FantasqueSansMono Nerd Font, JetBrains Mono, Monaco, Menlo, monospace",

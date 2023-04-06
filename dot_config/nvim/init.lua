@@ -27,7 +27,7 @@ vim.api.nvim_set_var("neovide_remember_window_size", true)
 
 -- Set Options --
 vim.opt.guifont = { "FantasqueSansMono Nerd Font", ":h16" }
-vim.g.neovide_transparency = 0.85
+vim.g.neovide_transparency = 0.75
 vim.o.hidden = true
 vim.o.number = true
 vim.o.termguicolors = true
