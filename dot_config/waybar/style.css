@@ -1,181 +1,316 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
- 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-
-/*
-Polar Night
-nord0  #2e3440
-nord1  #3b4252
-nord2  #434c5e
-nord3  #4c566a
-Snow Storm
-nord4  #d8dee9
-nord5  #e5e9f0
-nord6  #eceff4
-Frost
-nord7  #8fbcbb
-nord8  #88c0d0
-nord9  #81a1c1
-nord10 #5e81ac
-Aurora
-nord11 #bf616a
-nord12 #d08770
-nord13 #ebcb8b
-nord14 #a3be8c
-nord15 #b48ead
-*/
-
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
- 
-/* Reset all styles */
+@define-color nord0 #2E3440;
+@define-color nord1 #3B4252;
+@define-color nord2 #434C5E;
+@define-color nord3 #4C566A;
+@define-color nord4 #D8DEE9;
+@define-color nord5 #E5E9F0;
+@define-color nord6 #ECEFF4;
+@define-color nord7 #8FBCBB;
+@define-color nord8 #88C0D0;
+@define-color nord9 #81A1C1;
+@define-color nord10 #5E81AC;
+@define-color nord11 #BF616A;
+@define-color nord12 #D08770;
+@define-color nord13 #EBCB8B;
+@define-color nord14 #A3BE8C;
+@define-color nord15 #B48EAD;
 
 * {
-    color: #eceff4;
-    border: 0;
-    border-radius: 10;
-    padding: 0 0;
-    font-family:UbuntuMono;
-    font-size: 15px;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-bottom:3px;
-   }
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "FantasqueSansMono Nerd Font";
+    font-size: 16px;
+}
 
 window#waybar {
-    background:#2e3440;
+    /* set background color to nord0 using vars declared above and with frosty transparency */
+    background-color: @nord0;
+    border-bottom: 0px;
+    color: @nord4;
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
+window#waybar.hidden {
+    opacity: 0.1;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+}
+
+#window {
+    color: @nord4;
+    background-color: transparent;
+    padding: 0 15px;
+}
+
+#workspaces {
+    border-radius: 12px;
+    margin: 6px 0;
+    background-color: @nord1;
+    border: none;
+}
+  
 #workspaces button {
-    padding: 2px 0px;
-    border-bottom: 2px;
-    color: #eceff4;
-    border-color: #d8dee9;
-    border-style: solid;
-    margin-top:2px;
+    color: alpha(@nord4, 0.25);
+    background-color: transparent;
+    margin: 0 2px;
+    border-radius: 12px;
+    padding-right: 10px;
 }
-
+  
+#workspaces button:hover {
+    /* cursor: pointer; */
+    background: alpha(@nord3, 0.75);
+}
+  
 #workspaces button.active {
-    border-color: #81a1c1;
+    color: @nord4;
+    background-color: alpha(@nord4, 0.15);
+}
+  
+#workspaces button.urgent {
+    background-color: @nord11;
 }
 
-#mode {
-    color: #ebcb8b;
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#wireplumber,
+#tray,
+#mode,
+#scratchpad,
+#mpd {
+    padding: 0 10px;
+    color: @nord10;
 }
 
-#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #language, #backlight, #network, #pulseaudio, #mode, #tray, #window,#custom-launcher,#custom-power,#custom-pacman {
-    padding: 0 3px;
-    border-bottom: 2px;
-    border-style: solid;
+#window {
+    margin: 0 0;
 }
- 
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
 
- 
 #clock {
- color:#a3be8c;
+    background-color: @nord6;
+    color: @nord2;
+    margin: 6px 0;
+    border-radius: 12px;
 }
 
-#backlight {
-    color: #ebcb8b;
-}
-
-#battery {
-    color: #d8dee9;
-}
-
-#battery.charging {
-    color: #81a1c1;
+#submap {
+    background-color: @nord15;
+    color: @nord1;
+    padding: 0 5px;
+    font-size: 12px;
+    border-radius: 10px;
+    margin: 13px 0;
 }
 
 @keyframes blink {
     to {
-        color: #4c566a;
-        background-color: #eceff4;
+        background-color: #ffffff;
+        color: #000000;
     }
 }
 
-#battery.critical:not(.charging) {
-    background: #bf616a;
-    color: #eceff4;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+label:focus {
+    background-color: #000000;
 }
 
 #cpu {
-    color:#a3be8c ;
+    background-color: @nord14;
+    color: @nord2;
+    margin: 6px 0;
+    border-radius: 12px;
 }
 
 #memory {
-    color: #d3869b;
+    background-color: @nord13;
+    color: @nord2;
+    margin: 6px 0;
+    border-radius: 12px;
 }
 
-#network.disabled {
-    color:#bf616a;
+#disk {
+    background-color: #964B00;
 }
 
-#network{
-    color:#a3be8c;
+#backlight {
+    background-color: #90b1b1;
+}
+
+#network {
+    background-color: @nord9;
+    color: @nord2;
+    margin: 6px 0;
+    border-radius: 12px;
 }
 
 #network.disconnected {
-    color: #bf616a;
+    background-color: @nord11;
 }
 
 #pulseaudio {
-    color: #b48ead;
+    padding: 0 10px;
+    background-color: @nord7;
+    color: @nord2;
+    border-radius: 12px;
+    margin: 6px 0;
 }
 
 #pulseaudio.muted {
-    color: #3b4252;
+    background-color: @nord11;
+    color: @nord2;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: @nord11;
+    color: @nord2;
+    min-width: 100px;
+    padding: 0 10px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
 }
 
 #temperature {
-    color: #8fbcbb;
+    background-color: @nord8;
+    color: @nord2;
+    margin: 6px 0;
+    border-radius: 12px;
 }
 
 #temperature.critical {
-    color: #bf616a;
-}
-
-#idle_inhibitor {
-   color: #ebcb8b;
+    background-color: @nord11;
 }
 
 #tray {
+    background-color: @nord3;
+    margin: 12px 10px;
+    padding: 10px;
+    border-radius: 12px;
 }
 
-#custom-launcher,#custom-power{
-    border-style: hidden;
-    margin-top:2px;    
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#window{
-    border-style: hidden;
-    margin-top:1px;  
-}    
-#mode{
-    margin-bottom:3px;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @nord11;
 }
 
-#custom-keyboard-layout,#language{
-   color:#d08770;
-}   
+#idle_inhibitor {
+    background-color: @nord4;
+    margin: 6px 0;
+    padding: 5px;
+    border-radius: 50%;
+}
 
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
 
+#mpd {
+    background-color: #66cc99;
+    color: #2a5c45;
+}
 
+#mpd.disconnected {
+    background-color: #f53c3c;
+}
+
+#mpd.stopped {
+    background-color: #90b1b1;
+}
+
+#mpd.paused {
+    background-color: #51a37a;
+}
+
+#language {
+    background: @nord5;
+    color: @nord2;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #97e1ad;
+    color: #000000;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#custom-launcher {
+    color: @nord15; 
+    font-size: 24px;
+}
+
+#custom-arrow-dec {
+    color: @nord14;
+}
