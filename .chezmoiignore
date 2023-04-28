@@ -6,6 +6,7 @@
 .config/iterm2/
 .config/skhd/
 .config/yabai/
+.config/sketchybar/
 .simplebarrc
 {{ end -}}
 install.sh
