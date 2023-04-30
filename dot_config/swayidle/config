@@ -1,2 +1,2 @@
-timeout 5 swaylock
+timeout 300 swaylock
 lock swaylock
