@@ -10,13 +10,20 @@
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "clock", "tray"],
     // Modules configuration
     "wlr/workspaces": {
-        "all-outputs": true,
         "format": "{icon}",
+        "persistent_workspaces": {
+            "1": ["DP-1"],
+            "2": ["DP-2"],
+            "3": ["DP-1"],
+            "4": ["DP-2"],
+            "5": ["DP-1"]
+        },
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "",
+            "5": "󰊴",
             "urgent": "",
             "default": ""
         }
