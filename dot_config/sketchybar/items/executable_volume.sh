@@ -2,10 +2,10 @@ sketchybar --add item volume right                      \
            --set volume script="$PLUGIN_DIR/volume.sh"  \
                         updates=on                      \
                         icon.background.drawing=on      \
-                        icon.background.color=$BLUE     \
+                        icon.background.color=$GREEN    \
                         icon.background.height=8        \
                         icon.background.corner_radius=3 \
-                        icon.width=0                    \
+                        icon.width=10                   \
                         icon.align=right                \
                         label.drawing=off               \
                         background.drawing=on           \
@@ -17,8 +17,8 @@ sketchybar --add item volume right                      \
 
 sketchybar --add alias "Control Center,Sound" right                      \
            --rename "Control Center,Sound" volume_alias                  \
-           --set volume_alias icon.drawing=off                           \
-                              label.drawing=off                          \
+           --set volume_alias icon.drawing=on                           \
+                              label.drawing=on                          \
                               alias.color=$WHITE                         \
                               background.padding_right=0                 \
                               background.padding_left=5                  \
