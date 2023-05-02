@@ -10,10 +10,10 @@ volume_change() {
     sketchybar --set $NAME icon.width=$INFO width=$WIDTH
   fi
 
-  sleep 2
+  sleep 5
   FINAL_WIDTH=$(sketchybar --query $NAME | jq ".icon.width")
   if [ "$FINAL_WIDTH" -eq "$INFO" ]; then
-    sketchybar --animate tanh 30 --set $NAME width=100 icon.width=0
+    sketchybar --animate tanh 30 --set $NAME width=0 icon.width=0
   fi
 }
 
