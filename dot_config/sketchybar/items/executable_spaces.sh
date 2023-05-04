@@ -19,7 +19,7 @@ do
                               background.padding_right=-8                           \
                               background.color=$BACKGROUND_1                        \
                               background.drawing=on                                 \
-                              label.font="FantasqueSansMono Nerd Font:Regular:16.0" \
+                              label.font="{{ .font }}:Regular:16.0" \
                               label.background.height=26                            \
                               label.background.drawing=on                           \
                               label.background.color=$BACKGROUND_2                  \
@@ -31,7 +31,7 @@ done
 
 sketchybar   --add item       separator left                                       \
              --set separator  icon=                                               \
-                              icon.font="FantasqueSansMono Nerd Font:Regular:16.0" \
+                              icon.font="{{ .font }}:Regular:16.0" \
                               background.padding_left=26                           \
                               background.padding_right=15                          \
                               label.drawing=off                                    \

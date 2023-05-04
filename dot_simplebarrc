@@ -11,7 +11,7 @@
     "widgetMaxWidth": "80px",
     "spacesBackgroundColorAsForeground": false,
     "widgetsBackgroundColorAsForeground": false,
-    "font": "FantasqueSansMono Nerd Font, JetBrains Mono, Monaco, Menlo, monospace",
+    "font": "{{ .font }}, Monaco, Menlo, monospace",
     "fontSize": "11px",
     "yabaiPath": "/usr/local/bin/yabai",
     "shell": "bash",
