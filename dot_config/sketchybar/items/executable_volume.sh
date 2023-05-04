@@ -2,10 +2,10 @@ sketchybar --add item volume right                      \
            --set volume script="$PLUGIN_DIR/volume.sh"  \
                         updates=on                      \
                         icon.background.drawing=on      \
-                        icon.background.color=$BLUE     \
+                        icon.background.color=$GREEN    \
                         icon.background.height=8        \
                         icon.background.corner_radius=3 \
-                        icon.width=0                    \
+                        icon.width=0                   \
                         icon.align=right                \
                         label.drawing=off               \
                         background.drawing=on           \

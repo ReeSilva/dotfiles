@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-sketchybar --add item     calendar right                    \
+sketchybar --add item     calendar center                   \
            --set calendar icon=cal                          \
                           icon.font="$FONT:Black:12.0"      \
                           icon.padding_right=0              \

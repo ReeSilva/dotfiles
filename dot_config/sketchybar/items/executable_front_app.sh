@@ -10,7 +10,7 @@ sketchybar --add       event        window_focus                  \
                                     label.drawing=off             \
                                     icon.width=30                 \
                                     icon=$YABAI_GRID              \
-                                    icon.color=$BLUE              \
+                                    icon.color=$WHITE             \
                                     updates=on                    \
                                     associated_display=active     \
            --subscribe system.yabai window_focus                  \
