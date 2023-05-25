@@ -114,7 +114,8 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "alacritty -e nmtui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -133,6 +134,6 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "alacritty -e pulsemixer"
     }
 }
