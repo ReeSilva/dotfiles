@@ -46,4 +46,5 @@ return require('packer').startup(function()
   use 'f-person/git-blame.nvim'
   use 'Rasukarusan/nvim-select-multi-line'
   use 'github/copilot.vim'
+  use 'towolf/vim-helm'
 end)
