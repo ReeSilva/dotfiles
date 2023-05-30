@@ -3,6 +3,9 @@
 .config/sway/
 .config/waybar/
 .config/swaylock/
+.config/dunst/
+.config/fuzzel/
+.config/swayidle/
 {{ else if ne .chezmoi.os "darwin" -}}
 .config/iterm2/
 .config/skhd/
