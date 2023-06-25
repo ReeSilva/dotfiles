@@ -13,4 +13,7 @@
 .config/sketchybar/
 .simplebarrc
 {{ end -}}
+{{ if .codespaces -}}
+.git_config
+{{ end -}}
 install.sh
