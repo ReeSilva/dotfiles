@@ -1,3 +1,4 @@
+{{- if not .codespaces -}}
 [user]
 	email = {{ .email | quote }}
 	name = Renato Biancalana da Silva
@@ -30,3 +31,4 @@
         keepBackup = false
 [mergetool "nvimdiff"]
         cmd = nvim -d $LOCAL $REMOTE $MERGED
+{{- end -}}

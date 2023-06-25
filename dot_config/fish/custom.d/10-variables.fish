@@ -7,6 +7,7 @@ set PATH $HOME/.gem/ruby/2.7.0/bin $PATH
 set PATH /opt/android-studio/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
 set PATH (go env GOPATH)/bin $PATH
+set PATH /home/reesilva/.config/Code/User/globalStorage/ms-vscode-remote.remote-containers/cli-bin $PATH
 
 set -xg AWS_VAULT_PASS_PREFIX aws-vault
 set -xg AWS_VAULT_BACKEND pass
