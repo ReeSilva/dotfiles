@@ -119,4 +119,21 @@ sso_account_id = 453429343026
 sso_role_name = QuandooAdministrator
 region = eu-west-1
 {{- else }}
+
+[profile cterm-sandbox-account]
+sso_session = cterm-sso
+sso_account_id = 359920445716
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile cterm-sso-account]
+sso_session = cterm-sso
+sso_account_id = 838081971836
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[sso-session cterm-sso]
+sso_start_url = https://creatives.awsapps.com/start#
+sso_region = us-east-1
+sso_registration_scopes = sso:account:access
 {{- end }}

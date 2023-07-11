@@ -1,4 +1,5 @@
 functions/**
+!functions/fish_ssh_agent.fish
 conf.d/*.fish
 completions/**
 
