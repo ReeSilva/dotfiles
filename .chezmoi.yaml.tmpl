@@ -24,7 +24,7 @@ data:
   {{- end }}
   codespaces: {{ $codespaces }}
   {{- if $codespaces }}
-  {{- if eq .chezmoi.hostname "QL02010" }}
+  {{- if .isQuandoo }}
   email: renato.silva@quandoo.com
   signingkey: 3F478438C0036174
   {{- else }}
