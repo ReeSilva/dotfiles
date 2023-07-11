@@ -19,6 +19,9 @@ merge:
 data:
   name: Renato Biancalana da Silva
   font: JetBrainsMono Nerd Font
+  {{- if eq .chezmoi.os "darwin" }}
+  isQuandoo: true
+  {{- end }}
   codespaces: {{ $codespaces }}
   {{- if $codespaces }}
   {{- if eq .chezmoi.hostname "QL02010" }}

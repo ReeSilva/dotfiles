@@ -1,2 +1,54 @@
 Host *
   IdentityAgent ~/.1password/agent.sock
+  HostKeyAlgorithms +ssh-rsa,ssh-dss
+  PubkeyAcceptedAlgorithms +ssh-rsa,ssh-dss
+
+{{- if eq .chezmoi.os "darwin" }}
+Host website-team-bastion
+  Hostname 18.203.190.80
+  User ec2-user
+  IdentityFile ~/.ssh/id_rsa_admin
+  ForwardAgent yes
+  PubKeyAuthentication yes
+
+Host admin01
+  Hostname 52.213.187.85
+  User renato.silva
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+
+Host admin-bastion
+  Hostname 52.31.117.68
+  User renato.silva
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+
+Host prod-db-ro-bastion
+  Hostname 52.19.57.115
+  User renato.silva
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+
+Host prod-db-rw-bastion
+  Hostname 34.240.255.216
+  User renato.silva
+  IdentityFile ~/.ssh/id_rsa
+  ForwardAgent yes
+
+Host prod-ro-db
+  Hostname 10.11.112.84
+  User renato.silva
+  ProxyJump prod-db-ro-bastion
+
+Host prod-rw-db
+  Hostname 10.11.111.10
+  User renato.silva
+  ProxyJump prod-db-rw-bastion
+
+Host prod-ro-db-forward
+  Hostname 52.19.57.115
+  User renato.silva
+  ForwardAgent yes
+  LocalForward 15432 10.11.112.84:5432
+
+{{- end }}

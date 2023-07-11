@@ -1,7 +1,7 @@
 [profile default]
 region = eu-west-1
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if .isQuandoo }}
 [profile quandoo-users]
 region = eu-west-1
 mfa_serial = arn:aws:iam::435362087805:mfa/renato.silva
