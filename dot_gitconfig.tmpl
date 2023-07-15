@@ -12,7 +12,7 @@
 [init]
 	defaultBranch = main
 [core]
-        {{- if eq .chezmoi.hostname "QL02010" }}
+        {{- if eq .chezmoi.os "darwin" }}
 	excludesFile = /Users/renatosilva/.gitignore
         {{- else }}
         excludesFile = /home/reesilva/.gitignore

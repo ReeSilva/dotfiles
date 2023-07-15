@@ -1,4 +1,5 @@
 {{- $codespaces := env "CODESPACES" | not | not -}}
+{{- $quandooEnv := env "QUANDOO_ENV" | not | not -}}
 sourceDir: {{ .chezmoi.sourceDir | quote }}
 
 diff:
@@ -20,8 +21,9 @@ data:
   name: Renato Biancalana da Silva
   font: JetBrainsMono Nerd Font
   codespaces: {{ $codespaces }}
+  quandooEnv: {{ $quandooEnv }}
   {{- if $codespaces }}
-  {{- if eq .chezmoi.hostname "QL02010" }}
+  {{- if $quandooEnv }}
   email: renato.silva@quandoo.com
   signingkey: 3F478438C0036174
   {{- else }}
