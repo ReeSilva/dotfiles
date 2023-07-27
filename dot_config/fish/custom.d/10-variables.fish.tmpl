@@ -6,9 +6,6 @@ set PATH $HOME/.yarn/bin $PATH
 set PATH $HOME/.gem/ruby/2.7.0/bin $PATH
 set PATH /opt/android-studio/bin $PATH
 set PATH $HOME/.cargo/bin $PATH
-{{- if not .codespaces }}
-set PATH (go env GOPATH)/bin $PATH
-{{- end }}
 set PATH /home/reesilva/.config/Code/User/globalStorage/ms-vscode-remote.remote-containers/cli-bin $PATH
 
 set -xg AWS_VAULT_PASS_PREFIX aws-vault
@@ -23,4 +20,8 @@ set -xg OPENCV_LOG_LEVEL OFF
 
 # Android build vars
 set -xg USE_CCACHE 1
-set -xg CCACHE_EXEC=/usr/bin/ccache
+set -xg CCACHE_EXEC /usr/bin/ccache
+
+# Disable config of brew and asdf
+set -xg HOMEBREW_INSTALLED false
+set -xg ASDF_INSTALLED false
