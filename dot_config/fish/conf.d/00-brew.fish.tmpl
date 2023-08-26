@@ -4,6 +4,6 @@
   {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
   {{ if not .codespaces -}}
-  eval (/usr/local/bin/brew shellenv)
+  eval (/opt/homebrew/bin/brew shellenv)
   {{ end -}}
 {{ end -}}

@@ -3,7 +3,7 @@
   source /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.fish
   {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
-  {{ if not .codespaces -}}
+  {{ if and (not .codespaces) .asdf -}}
   source /usr/local/opt/asdf/libexec/asdf.fish
   {{ end -}}
 {{ end -}}
