@@ -1,7 +1,7 @@
 function brew_upgrade
-   sketchybar --trigger brew_update && brew upgrade 
+    brew upgrade && sketchybar --trigger brew_update && echo "brew upgraded and sketchybar triggered"
 end
 
 function brew_update
-   sketchybar --trigger brew_update && brew update
+    brew update && sketchybar --trigger brew_update && echo "brew updated and sketchybar triggered"
 end
