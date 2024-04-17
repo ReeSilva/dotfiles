@@ -47,4 +47,5 @@ return require('packer').startup(function()
   use 'Rasukarusan/nvim-select-multi-line'
   use 'github/copilot.vim'
   use 'towolf/vim-helm'
+  use 'mg979/vim-visual-multi'
 end)
