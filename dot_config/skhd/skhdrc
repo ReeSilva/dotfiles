@@ -73,7 +73,7 @@
 #           Configurations for skhd            #
 ################################################
 # alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-alt - return : /Applications/alacritty.app/Contents/MacOS/alacritty --single-instance -d ~
+alt - return : /Applications/alacritty.app/Contents/MacOS/alacritty msg create-window
 
 ################################################
 #           Configurations for Yabai           #

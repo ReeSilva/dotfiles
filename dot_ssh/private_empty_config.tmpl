@@ -5,7 +5,11 @@ Host *
 
 Host github.com
   Hostname github.com
+  {{ if eq .chezmoi.os "darwin" -}}
+  IdentityFile ~/.ssh/id_rsa_personal
+  {{ else -}}
   IdentityFile ~/.ssh/id_rsa
+  {{ end }}
 
 {{ if eq .chezmoi.os "darwin" -}}
 Host website-team-bastion

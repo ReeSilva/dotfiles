@@ -1,3 +1,4 @@
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -5,6 +6,17 @@ end
 for file in $__fish_config_dir/custom.d/*.fish
   source $file
 end
+
+fundle plugin 'patrickf1/fzf.fish'
+fundle plugin 'jhillyerd/plugin-git'
+fundle plugin 'jethrokuan/z'
+fundle plugin 'laughedelic/pisces'
+fundle plugin 'oh-my-fish/plugin-thefuck'
+fundle plugin 'gazorby/fish-abbreviation-tips'
+fundle plugin 'paysonwallach/fish-you-should-use'
+fundle plugin 'kidonng/vscode.fish'
+
+fundle init
 
 . (which env_parallel.fish)
 
