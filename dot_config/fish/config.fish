@@ -18,6 +18,8 @@ fundle plugin 'kidonng/vscode.fish'
 
 fundle init
 
+/opt/homebrew/bin/mise activate fish | source
+
 . (which env_parallel.fish)
 
 # The next line updates PATH for the Google Cloud SDK.

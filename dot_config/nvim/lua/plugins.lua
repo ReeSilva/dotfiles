@@ -47,4 +47,22 @@ return require('packer').startup(function()
   use 'github/copilot.vim'
   use 'towolf/vim-helm'
   use 'mg979/vim-visual-multi'
+  use({
+    "coffebar/neovim-project",
+    config = function()
+      vim.opt.sessionoptions:append("globals")
+      require("neovim-project").setup {
+        projects = {
+          "~/Work/Projects/*",
+          "~/.local/share/*",
+        },
+      }
+    end,
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+      { "Shatur/neovim-session-manager" },
+    }
+  })
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 end)

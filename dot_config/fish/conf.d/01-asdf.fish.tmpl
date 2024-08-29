@@ -4,6 +4,6 @@
   {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
   {{ if and (not .codespaces) .asdf -}}
-  source /usr/local/opt/asdf/libexec/asdf.fish
+  source /opt/homebrew/opt/asdf/libexec/asdf.fish
   {{ end -}}
 {{ end -}}

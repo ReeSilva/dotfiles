@@ -1,3 +1,4 @@
 .devcontainer
 ${env.CI_PROJECT_PATH}
 .DS_Store
+.mise.toml
