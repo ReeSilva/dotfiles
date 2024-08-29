@@ -53,7 +53,14 @@ return require('packer').startup(function()
       vim.opt.sessionoptions:append("globals")
       require("neovim-project").setup {
         projects = {
+          {{ if eq .chezmoi.os "darwin" -}}
           "~/Work/Projects/*",
+          {{ else -}}
+          "~/Projects/*",
+          {{ end -}}
+          {{ if eq .chezmoi.osRelease.id "nixos" -}}
+          "/etc/nixos/*",
+          {{ end -}}
           "~/.local/share/*",
         },
       }

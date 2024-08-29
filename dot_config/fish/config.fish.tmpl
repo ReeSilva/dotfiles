@@ -18,7 +18,9 @@ fundle plugin 'kidonng/vscode.fish'
 
 fundle init
 
+{{ if eq .chezmoi.os "darwin" -}}
 /opt/homebrew/bin/mise activate fish | source
+{{ end -}}
 
 . (which env_parallel.fish)
 

@@ -42,6 +42,15 @@ vim.opt.relativenumber = true
 vim.keymap.set('n', '<Leader>gg', ':LazyGit<CR>')
 vim.keymap.set('n', '<Leader>ps', ':PackerSync<CR>')
 vim.keymap.set('n', '<Leader>ee', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<Leader>ff', ':NvimTreeFocus<CR>')
 vim.keymap.set('n', '<Leader>yy', '"+y')
 vim.keymap.set('n', '<Leader>pp', '"+p')
+vim.keymap.set('n', '<Leader>pd', ':Telescope neovim-project discover<CR>')
+vim.keymap.set('n', '<Leader>ph', ':Telescope neovim-project history<CR>')
+vim.keymap.set('n', '<Leader>pr', ':NeovimProjectLoadRecent<CR>')
+
+-- Mappings for Telescope --
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<Leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<Leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<Leader>fr', builtin.registers, {})
