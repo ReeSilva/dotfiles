@@ -70,6 +70,8 @@ mods = "Control|Shift"
 [shell]
 {{- if eq .chezmoi.os "darwin" }}
 program = "/opt/homebrew/bin/fish"
+{{- else if eq .chezmoi.osRelease.name "NixOS" }}
+program = "/run/current-system/sw/bin/fish"
 {{- else }}
 program = "/usr/bin/fish"
 {{- end }}
