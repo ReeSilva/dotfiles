@@ -39,7 +39,6 @@ require('nvim-tree').setup({
 vim.opt.sessionoptions:append("globals")
 require("neovim-project").setup({
   last_session_on_startup = false,
-  dashboard_mode = true,
   projects = {
     {{ if eq .chezmoi.os "darwin" -}}
     "~/Work/Projects/*",
