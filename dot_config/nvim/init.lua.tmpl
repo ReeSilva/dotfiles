@@ -35,13 +35,20 @@ require('nvim-tree').setup({
   }
 })
 
--- Setup Neovim Project --
+---- Neovim Project ----
 vim.opt.sessionoptions:append("globals")
 require("neovim-project").setup({
-  last_session_on_startup = true,
+  last_session_on_startup = false,
+  dashboard_mode = true,
   projects = {
+    {{ if eq .chezmoi.os "darwin" -}}
+    "~/Work/Projects/*",
+    "~/Work/*",
+    {{ end -}}
     "~/Projects/*",
+    {{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "nixos") -}}
     "/etc/nixos/*",
+    {{ end -}}
   }
 })
 
