@@ -51,6 +51,10 @@ require("neovim-project").setup({
   }
 })
 
+---- Startup Nvim ----
+local startup = require('startup')
+startup.setup()
+
 ---- Chezmoi ---
 require('chezmoi').setup({
   edit = {
