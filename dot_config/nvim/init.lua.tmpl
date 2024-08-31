@@ -1,5 +1,7 @@
+-- Setup Plugins --
 require('plugins')
 
+---- Toggleterm ----
 require('toggleterm').setup{
   size = 20,
   open_mapping = [[<Leader>tt]],
@@ -8,6 +10,7 @@ require('toggleterm').setup{
   shading_factor = 0
 }
 
+---- Lualine ----
 require('lualine').setup({
   options = {
     theme = "nord",
@@ -15,16 +18,41 @@ require('lualine').setup({
   }
 })
 
+---- Nvim Tree ----
 require('nvim-tree').setup({
-  open_on_tab = true,
   sync_root_with_cwd = true,
+  auto_reload_on_write = true,
+  reload_on_bufenter = true,
   view = {
     adaptive_size = true,
     side = "left",
+  },
+  tab = {
+    sync = {
+      open = true,
+      close = true,
+    },
   }
 })
 
--- Set Nord Colorscheme --
+-- Setup Neovim Project --
+vim.opt.sessionoptions:append("globals")
+require("neovim-project").setup({
+  last_session_on_startup = true,
+  projects = {
+    "~/Projects/*",
+    "/etc/nixos/*",
+  }
+})
+
+---- Chezmoi ---
+require('chezmoi').setup({
+  edit = {
+    watch = true
+  }
+})
+
+-- Set Theming Nord Colorscheme --
 vim.cmd([[ colorscheme nord ]])
 
 -- Set Options --
@@ -51,6 +79,8 @@ vim.keymap.set('n', '<Leader>pp', '"+p')
 vim.keymap.set('n', '<Leader>pr', ':NeovimProjectLoadRecent<CR>')
 
 -- Mappings for Telescope --
+
+---- Neovim-project and basic Telescope functions ----
 local builtin = require('telescope.builtin')
 local telescope = require('telescope')
 local pj = telescope.load_extension('neovim-project')
@@ -60,9 +90,7 @@ vim.keymap.set('n', '<Leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<Leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<Leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<Leader>fr', builtin.registers, {})
-require('chezmoi').setup({
-  edit = {
-    watch = true
-  }
-})
-telescope.load_extension('chezmoi')
+
+---- Set chezmoi extension mappings ----
+local chezmoi = telescope.load_extension('chezmoi')
+vim.keymap.set('n', '<Leader>cf', ':Telescope chezmoi find_files<CR>', {})
