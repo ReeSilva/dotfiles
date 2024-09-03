@@ -1,0 +1,47 @@
+-- Pull in the wezterm API
+local wezterm = require("wezterm")
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+-- Set some global vars --
+local mux = wezterm.mux
+local act = wezterm.action
+
+-- This is where you actually apply your config choices
+
+-- For example, changing the color scheme:
+config.color_scheme = "Catppuccin Latte"
+-- config.colors = wezterm.color.get_default_colors()
+
+-- Load modal plugin --
+local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
+-- modal.apply_to_config(config)
+
+-- Remove decorations --
+config.window_decorations = "RESIZE"
+
+-- Change bg of inactive pane --
+config.inactive_pane_hsb = {
+	saturation = 0.3,
+	brightness = 0.6,
+}
+
+-- Set font --
+config.font = wezterm.font { family = {{ .font | quote }}, weight = 'Regular' }
+config.font_size = 16
+
+config.use_dead_keys = false
+config.scrollback_lines = 20000
+
+-- tweak to not have problems with tiling window managers [See: https://hackernoon.com/get-the-most-out-of-your-terminal-a-comprehensive-guide-to-wezterm-configuration] --
+config.adjust_window_size_when_changing_font_size = false
+config.hide_tab_bar_if_only_one_tab = true
+
+-- Appearance of the tab bar --
+config.window_frame = {
+  font = wezterm.font({{ .font | quote }})
+}
+
+-- and finally, return the configuration to wezterm
+return config
