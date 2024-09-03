@@ -6,7 +6,11 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
+      {{ if eq .chezmoi.os "darwin" -}}
       colorscheme = "catppuccin-latte",
+      {{ else -}}
+      colorscheme = "catppuccin-mocha",
+      {{ end -}}
     },
   },
 }
