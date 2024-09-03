@@ -4,31 +4,51 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- Set some global vars --
-local mux = wezterm.mux
-local act = wezterm.action
-
--- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
+-- Set colorscheme and colors object to the same thing
 {{ if eq .chezmoi.os "darwin" -}}
 config.color_scheme = "Catppuccin Latte"
+local cattpuccin = wezterm.get_builtin_color_schemes()['Catppuccin Latte']
+config.colors = cattpuccin
 {{ else -}}
 config.color_scheme = "Catppuccin Mocha"
+local cattpuccin = wezterm.get_builtin_color_schemes()['Catppuccin Mocha']
+config.colors = cattpuccin
 {{ end -}}
--- config.colors = wezterm.color.get_default_colors()
 
 -- Load modal plugin --
 local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
--- modal.apply_to_config(config)
+wezterm.on("modal.enter", function(name, window, pane)
+  modal.set_right_status(window, name)
+end)
+
+wezterm.on("modal.exit", function(name, window, pane)
+  window:set_right_status("Normal Mode")
+end)
+modal.apply_to_config(config)
+config.keys = {}
+table.insert(config.keys, {
+		key = "n",
+		mods = "CTRL|SHIFT",
+		action = modal.activate_mode("Scroll"),
+	})
+	table.insert(config.keys, {
+		key = "u",
+		mods = "CTRL|SHIFT",
+		action = modal.activate_mode("UI"),
+	})
+	table.insert(config.keys, {
+		key = "c",
+		mods = "CTRL|SHIFT",
+		action = modal.activate_mode("copy_mode"),
+	})
 
 -- Remove decorations --
 config.window_decorations = "RESIZE"
 
 -- Change bg of inactive pane --
 config.inactive_pane_hsb = {
-	saturation = 0.3,
-	brightness = 0.6,
+	saturation = 0.90,
+	brightness = 0.75,
 }
 
 -- Set font --
@@ -40,12 +60,14 @@ config.scrollback_lines = 20000
 
 -- tweak to not have problems with tiling window managers [See: https://hackernoon.com/get-the-most-out-of-your-terminal-a-comprehensive-guide-to-wezterm-configuration] --
 config.adjust_window_size_when_changing_font_size = false
-config.hide_tab_bar_if_only_one_tab = true
+-- config.hide_tab_bar_if_only_one_tab = true
 
 -- Appearance of the tab bar --
 config.window_frame = {
-  font = wezterm.font({{ .font | quote }})
+  font = wezterm.font { family = {{ .font | quote }}, weight = 'Light' },
+  font_size = 14
 }
+config.window_background_opacity = 0.95
 
 -- and finally, return the configuration to wezterm
 return config
