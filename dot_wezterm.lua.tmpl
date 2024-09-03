@@ -11,7 +11,11 @@ local act = wezterm.action
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
+{{ if eq .chezmoi.os "darwin" -}}
 config.color_scheme = "Catppuccin Latte"
+{{ else -}}
+config.color_scheme = "Catppuccin Mocha"
+{{ end -}}
 -- config.colors = wezterm.color.get_default_colors()
 
 -- Load modal plugin --
