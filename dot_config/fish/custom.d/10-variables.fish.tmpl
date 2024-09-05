@@ -10,13 +10,16 @@ set PATH /home/reesilva/.config/Code/User/globalStorage/ms-vscode-remote.remote-
 set PATH /Applications/Keybase.app/Contents/SharedSupport/bin $PATH
 {{ if eq .chezmoi.os "darwin" -}}
 set PATH (python3 -m site --user-base)/bin $PATH
+set -xg TERRAGRUNT_TFPATH /opt/homebrew/bin/tofu
+set -xg TERRAGRUNT_PROVIDER_CACHE 1
+set -xg TERRAGRUNT_PROVIDER_CACHE_DIR /tmp/terragrunt_provider_cache
 {{ end -}}
 
 set -xg AWS_VAULT_PASS_PREFIX aws-vault
 set -xg AWS_VAULT_BACKEND pass
 set -xg GPG_TTY (tty)
 
-set -xg EDITOR nvim 
+set -xg EDITOR nvim
 set -xg TERM xterm-256color
 
 set -xg USE_GKE_GCLOUD_AUTH_PLUGIN true
