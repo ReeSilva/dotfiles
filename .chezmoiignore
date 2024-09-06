@@ -17,3 +17,4 @@
 .git_config
 {{ end -}}
 install.sh
+.config/nvim/lazy-lock.json
