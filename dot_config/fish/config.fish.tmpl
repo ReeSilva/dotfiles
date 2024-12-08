@@ -1,29 +1,34 @@
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+if not functions -q fundle
+    eval (curl -sfL https://git.io/fundle-install)
+end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
 for file in $__fish_config_dir/custom.d/*.fish
-  source $file
+    source $file
 end
 
 fundle plugin 'patrickf1/fzf.fish'
-fundle plugin 'jhillyerd/plugin-git'
-fundle plugin 'jethrokuan/z'
-fundle plugin 'laughedelic/pisces'
-fundle plugin 'oh-my-fish/plugin-thefuck'
-fundle plugin 'gazorby/fish-abbreviation-tips'
-fundle plugin 'paysonwallach/fish-you-should-use'
+fundle plugin jhillyerd/plugin-git
+fundle plugin jethrokuan/z
+fundle plugin laughedelic/pisces
+fundle plugin oh-my-fish/plugin-thefuck
+fundle plugin gazorby/fish-abbreviation-tips
+fundle plugin paysonwallach/fish-you-should-use
 fundle plugin 'kidonng/vscode.fish'
 
 fundle init
 
 {{ if eq .chezmoi.os "darwin" -}}
-/opt/homebrew/bin/mise activate fish | source
+# /opt/homebrew/bin/mise activate fish | source
 {{ end -}}
 
 . (which env_parallel.fish)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/google-cloud-sdk/path.fish.inc' ]; . '/opt/google-cloud-sdk/path.fish.inc'; end
+# source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.fish.inc' ]
+    . '/opt/google-cloud-sdk/path.fish.inc'
+end

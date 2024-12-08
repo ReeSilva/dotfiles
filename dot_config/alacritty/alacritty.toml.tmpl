@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [colors.bright]
@@ -67,9 +68,9 @@ action = "SpawnNewInstance"
 key = "Return"
 mods = "Control|Shift"
 
-[shell]
+[terminal.shell]
 {{- if eq .chezmoi.os "darwin" }}
-program = "/opt/homebrew/bin/fish"
+program = "/run/current-system/sw/bin/fish"
 {{- else if eq .chezmoi.osRelease.name "NixOS" }}
 program = "/run/current-system/sw/bin/fish"
 {{- else }}

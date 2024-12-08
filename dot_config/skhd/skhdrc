@@ -101,14 +101,14 @@ shift + alt - s : yabai -m space --balance
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 shift + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m window --space "${index}" && \
-                  yabai -m space --focus "${index}"
+                  set index (yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index') && \
+                  yabai -m window --space "$index" && \
+                  yabai -m space --focus "$index"
 
 # create desktop and follow focus - uses jq for parsing json (brew install jq)
 alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                  yabai -m space --focus "${index}"
+                  set index (yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index') && \
+                  yabai -m space --focus "$index"
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
